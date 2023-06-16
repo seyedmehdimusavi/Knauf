@@ -40,13 +40,10 @@ export class PostsComponent implements OnInit {
 
   }
 
-
   showcomments(event){
     this.userComments=event;
-    //console.log("event");
-    //console.log(event);
+    
   }
-
 
   modal = false;
   /**
@@ -58,7 +55,5 @@ export class PostsComponent implements OnInit {
     this.userId = userId;
 
   }
-
-
 
 }

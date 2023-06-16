@@ -12,8 +12,8 @@
                     <h5> author : <span>{{post.user.name}} </span> </h5>
                     <h5> website : <span>{{post.user.website}} </span></h5>
                     <h5> website : <span>{{post.user.email}} </span></h5>
-                    <button type="button" class="btn btn-default btn-sm btn-label"><i (click)="post.show=!post.show">
-                            Posts </i>
+                    <button type="button" class="btn btn-default btn-sm btn-label" (click)="post.show=!post.show">
+                           <span *ngIf="!post.show">Show Comments</span>   <span *ngIf="post.show">Hide Comments</span>  
                     </button>
                 </div>
                 <app-author *ngIf="post.show" (userComments)="showcomments($event)" [postId]="post.id"> </app-author>
@@ -35,15 +35,6 @@
                         </div>
                     </div>
                 </div>
-
-
-
-
-
-
-
-
-
             </div>
         </div>
     </div>
