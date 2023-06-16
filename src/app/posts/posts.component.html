@@ -1,0 +1,50 @@
+<div class="row" *ngFor="let post of allposts; let i=index">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">
+                    {{post.title}}
+                </h4>
+                <p class="card-sub-title">
+                    {{post.body}}
+                </p>
+                <div class="justify-content-end">
+                    <h5> author : <span>{{post.user.name}} </span> </h5>
+                    <h5> website : <span>{{post.user.website}} </span></h5>
+                    <h5> website : <span>{{post.user.email}} </span></h5>
+                    <button type="button" class="btn btn-default btn-sm btn-label"><i (click)="post.show=!post.show">
+                            Posts </i>
+                    </button>
+                </div>
+                <app-author *ngIf="post.show" (userComments)="showcomments($event)" [postId]="post.id"> </app-author>
+
+                <div class="card card-small">
+                    <div class="card-body bg-custom">
+                        <div class="col-md-6">
+                            <div *ngIf="post.show" class="row">
+                                <div class="col-md-12" *ngFor="let comment of userComments; let i=index">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h4> {{comment.name}}</h4>
+                                            <p>{{comment.body}}</p>
+                                            <p>email : {{comment.email}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
